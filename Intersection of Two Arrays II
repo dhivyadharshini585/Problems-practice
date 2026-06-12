@@ -1,0 +1,21 @@
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        List<Integer> list= new ArrayList<>();
+        for(int i : nums2){
+            list.add(i);
+        }
+        List<Integer> arrl= new ArrayList<>();
+        for(int i : nums1){
+            if(list.contains(i)){
+                arrl.add(i);
+                list.remove(Integer.valueOf(i));
+            }
+        } 
+        int arr[]= new int[arrl.size()];
+        int a=0;
+        for(int i: arrl){
+            arr[a++]=i;
+        }
+        return arr;
+    }
+}
