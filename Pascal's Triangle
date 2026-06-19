@@ -1,0 +1,36 @@
+Given an integer numRows, return the first numRows of Pascal's triangle.
+In Pascal's triangle, each number is the sum of the two numbers directly above it as shown:
+
+Example 1:
+Input: numRows = 5
+Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+Example 2:
+Input: numRows = 1
+Output: [[1]]
+
+Solution :
+
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> Plist = new ArrayList<>();
+
+        for(int i=0;i<numRows;i++){
+            List<Integer> Clist = new ArrayList<>();
+             if(i==0){
+                Clist.add(1);
+             }
+           
+            else{
+                Clist.add(1);
+                for(int j=2;j<=i;j++){
+                    
+                    Clist.add(Plist.get(i-1).get(j-1) + Plist.get(i-1).get(j-2));
+                }
+                Clist.add(1);
+            }
+            Plist.add(Clist);
+
+        }
+        return Plist;
+    }
+}
